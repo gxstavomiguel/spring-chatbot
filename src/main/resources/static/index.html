@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatBot</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
 </head>
 
 
@@ -97,34 +107,71 @@
 <body>
 <div id="div_body">
 
-    <div id="div_busca">
-        <p>BUSCA</p>
+    <div id="div_background">
+
+        <div id="div_com_logo_h1">
+            <img src="./img/logo_imagem.png" alt="Logo da DC">
+            <h1>Bem-vindo(a) à DC<br> Drivers Company</h1>
+        </div>
+
+        <div id="div_com_h2_P_botao">
+            <h2>Onde você e sua família encontram confiança, segurança e bem-estar no seu Caminho.</h2>
+            <p>Motoristas por aplicativos ou caronas para longas distâncias, <br>
+                Saiba que você está no lugar certo!</p>
+
+
+            <div id="div_botao_wpp">
+                <P>
+                    Chame um carro ou reserve sua viagem <a
+                        href="https://api.whatsapp.com/send/?phone=5551933000408&text&type=phone_number&app_absent=0"
+                        target="_blank">agora mesmo!</a>
+                </P>
+
+
+                <img src="img/wpp.png" id="wpp">
+                <!-- <img src="https://static.wixstatic.com/media/e0597f_8abcf90996894c12a3ed8d67c5d8350c~mv2.png/v1/fill/w_75,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e0597f_8abcf90996894c12a3ed8d67c5d8350c~mv2.png" alt="WhatsApp"> -->
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div>
+        <div id="div_parte_preta">
+            <h3>Nossas vantagens</h3>
+            <p id="p_servico">Serviço Personalizado, adaptado para a sua necessidade.
+            </p>
+            <div id="div_parte_preta_2">
+                <div id="div_eficiente">
+                    <h4>Eficiente e Confiável</h4>
+                    <p>Nossa plataforma oferece um serviço de motorista personalizado e confiável, permitindo que os
+                        passageiros se desloquem de forma segura e eficiente. Valorizamos a comodidade, a segurança
+                        e o
+                        bem-estar dos nossos clientes, proporcionando uma experiência de transporte única.</p>
+                </div>
+                <div>
+                    <img src="https://static.wixstatic.com/media/e0597f_3a378b9269ea4bf9b8e22a824375ae4d~mv2.gif">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_modal_chatbot">
+        <div class="chat-container">
+            <div id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button id="send-btn">Enviar</button>
+        </div>
     </div>
 
 
+    <div id="div_parte_branco">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="chat-container">
-        <div id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="Digite sua mensagem...">
-        <button id="send-btn">Enviar</button>
     </div>
+
 </div>
-
 
 </body>
 
