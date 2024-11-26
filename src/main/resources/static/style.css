@@ -4,7 +4,6 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    font-family: 'poppins-semibold', 'sans-serif';
     font-style: normal;
     font-weight: 700;
     src: url('//static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/poppins/v5/aDjpMND83pDErGXlVEr-Sfk_vArhqVIZ0nv9q090hN8.woff2') format('woff2');
@@ -14,7 +13,6 @@
 #div_body {
     /* Enganei a div do nossas vantagens */
     background-color: #000000;
-    font-family: 'Poppins', sans-serif;
 }
 
 .chat-container {
@@ -380,6 +378,13 @@ footer {
     margin-top: 60px;
 }
 
+#div_botao_wpp2 a {
+    color: #1A1B1D;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 450;
+}
+
 #p_servico2 {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
@@ -490,7 +495,7 @@ footer {
     gap: 40px;
 }
 
-#div_parte_cinza2 img {
+#tt {
     width: 126px;
     height: 149px;
 }
@@ -502,9 +507,9 @@ footer {
     font-weight: 400;
 }
 
-#logo_wpp {
-    width: 85x;
-    height: 80px;
+#logo_wpp_r{
+    width: 64px;
+    height: 64px;
 }
 
 #botao_redondo {
@@ -604,3 +609,121 @@ footer {
 #borda_branca img{
     width: 45px;
 }
+
+
+
+#ultima_div{
+    display: flex;
+}
+
+
+#logo_preta{
+    width: 50%;
+    height: 400px;
+    background-color: #D4D4D4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bloco_cinza{
+    background-color: #D4D4D4;
+    width: 100%;
+    height: 535px;
+    display: flex;
+}
+
+#bloco_com_logo{
+    background-color: rgb(64, 206, 206);
+    width: 50%;
+    height: 500px;
+}
+
+#bloco_com_form{
+    width: 50%;
+    background-color: #D4D4D4;;
+}
+
+#div_com_h1_img{
+    display: flex;
+    flex-direction: row;
+    gap: 270px;
+}
+
+#div_com_h1_img h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+}
+
+#label_input{
+    display: flex;
+    flex-direction: column;
+}
+
+#label_input input{
+    background-color: #C1C2BE;
+    width: 225px;
+    height: 40px;
+    /* box-shadow: 1px; */
+    padding: 3px 3px 3px 7px;
+}
+
+#label_input label{
+    color: #1A1B1D;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#primeiro_bloco{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+#textarea_msg{
+    display: flex;
+    flex-direction: column;
+}
+
+#textarea_msg textarea{
+    width: 470px;
+    height: 100px;
+    padding: 13.5px 10px 3px 7px;
+    background-color: #C1C2BE;
+}
+
+#textarea_msg{
+    color: #1A1B1D;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#div_com_botao_img{
+    display: flex;
+    flex-direction: row;
+    gap: 265px;
+    margin-top: 20px;
+}
+
+#div_com_h1_img{
+    display: flex;
+    flex-direction: row;
+    gap: 265px;
+}
+
+#div_com_botao_img button{
+    border: solid 0.5px;
+    background-color: #66F7B2;
+    width: 150px;
+    height: 51px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    border-radius: 40px;
+}
+
+
+
+
+
+
+
