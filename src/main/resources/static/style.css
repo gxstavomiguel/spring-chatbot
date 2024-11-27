@@ -724,6 +724,109 @@ footer {
 
 
 
+#div-two-box{
+    width: 100%;
+    height: 591px;
+    /* height: 600px; */
+    display: flex;
+    align-items: center;
+}
+
+#part-b1{
+    height: 591px;
+    width: 555px;
+}
+
+#part-b1 img {
+    width: 555px;
+    height: 591px;
+}
+
+#part-b2{
+    height: 591px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    max-width: 617px;
+    max-height: 352px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: white;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    text-align: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.carousel-item p {
+    margin: 10px 0;
+    font-size: 16px;
+}
 
 
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Bolinhas */
+.indicators {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dot.active {
+    background: #333;
+    transform: scale(1.2);
+}
 
