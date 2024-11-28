@@ -316,13 +316,22 @@ p {
 #sub_div_2 {
     width: 31%;
     height: 692px;
-    background-color: #a10c95;
+    overflow: hidden;
+}
 
+#sub_div_2 img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover;
+    object-position: center; */
 }
 
 #sub_div_3 {
     width: 31%;
     height: 692px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 #div_titulo_texto_imagem {
