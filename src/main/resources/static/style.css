@@ -783,7 +783,7 @@ p {
 }
 
 
-button {
+#dir, #esq {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -797,7 +797,11 @@ button {
     z-index: 10;
 }
 
-button:hover {
+#esq:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#dir:hover {
     background: rgba(0, 0, 0, 0.8);
 }
 
@@ -890,4 +894,19 @@ footer {
 #texto2{
     font-size: 15px;
     text-align: center;
+}
+
+
+#btn_open_modal{
+    background-color: red;
+    width: 100px;
+    height: 40px;
+    border-radius: 0;
+    font-size: 11px;
+}
+
+#div_para_modal{
+    background-color: #a10c95;
+    height: 100px;
+    width: 100px;
 }
