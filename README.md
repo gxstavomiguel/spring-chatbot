@@ -42,3 +42,20 @@ Este chatbot foi desenvolvido como parte da disciplina de **Engenharia de Softwa
    git clone https://github.com/seu-usuario/chatbot-engenharia-software.git
 2. **Abra o projeto no IntelliJ IDEA.**
    ```bash
+
+3. **Inicie a aplicação pela classe ChatbotApplication.java.**
+   ```bash
+   A aplicação estará disponível em:
+   http://localhost:8080
+
+4. **Configure o ngrok:**
+   ```bash
+   Execute o comando no terminal:
+   ngrok http 8080
+   Copie o link gerado (ex.: https://abcdefg.ngrok.io) para acessar a aplicação com suporte a SSL/TLS.
+
+5. **Interaja com o Chatbot:**
+   ```bash
+   Abra a aplicação no navegador.
+   Clique no botão "Vamos conversar".
+   Realize interações para testar a capacidade de regex e as respostas configuradas.
