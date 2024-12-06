@@ -40,3 +40,5 @@ Este chatbot foi desenvolvido como parte da disciplina de **Engenharia de Softwa
 1. **Clone este repositório:**
    ```bash
    git clone https://github.com/seu-usuario/chatbot-engenharia-software.git
+2. **Abra o projeto no IntelliJ IDEA.**
+   ```bash
