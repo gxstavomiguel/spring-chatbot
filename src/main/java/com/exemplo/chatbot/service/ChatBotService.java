@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class ChatBotService {
 
+
     private Map<String, String> respostas;
 
     public ChatBotService() {
@@ -42,3 +43,40 @@ public class ChatBotService {
         return "Desculpe, não entendi sua mensagem. Por favor, tente perguntar de outra forma.";
     }
 }
+
+
+//import com.google.cloud.dialogflow.v2.*;
+//import com.google.protobuf.Struct;
+//import com.google.protobuf.Value;
+//
+//import java.io.IOException;
+//import java.util.HashMap;
+//import java.util.Map;
+//
+//public class ChatBotService {
+//
+//    private final String projectId = "seu-projeto-id-dialogflow";
+//
+//    public String processarMensagem(String mensagem) {
+//        try (SessionsClient sessionsClient = SessionsClient.create()) {
+//            String sessionId = "12345"; // Pode ser qualquer identificador único de sessão
+//            SessionName session = SessionName.of(projectId, sessionId);
+//
+//            TextInput textInput = TextInput.newBuilder().setText(mensagem).setLanguageCode("pt-BR").build();
+//            QueryInput queryInput = QueryInput.newBuilder().setText(textInput).build();
+//
+//            DetectIntentRequest request = DetectIntentRequest.newBuilder()
+//                    .setSession(session.toString())
+//                    .setQueryInput(queryInput)
+//                    .build();
+//
+//            DetectIntentResponse response = sessionsClient.detectIntent(request);
+//            QueryResult queryResult = response.getQueryResult();
+//            return queryResult.getFulfillmentText();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return "Erro ao processar a mensagem.";
+//        }
+//    }
+//}
+
