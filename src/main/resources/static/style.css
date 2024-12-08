@@ -451,7 +451,10 @@ p {
 #imgs{
     width: 40%;
     height: 600px;
-    background-color: red;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #titulos #botao_redondo {
