@@ -2,77 +2,6 @@ package com.exemplo.chatbot.service;
 
 //import com.google.gson.Gson;
 //import com.google.gson.reflect.TypeToken;
-//import java.io.InputStreamReader;
-//import java.io.Reader;
-//import java.lang.reflect.Type;
-//import java.util.HashMap;
-//import java.util.Map;
-//import java.util.regex.Matcher;
-//import java.util.regex.Pattern;
-//
-//public class ChatBotService {
-//
-//    private Map<String, String> respostas;
-//
-//    public ChatBotService() {
-//        this.respostas = new HashMap<>();
-//        carregarRespostas();
-//    }
-//
-//    private void carregarRespostas() {
-//        try (Reader reader = new InputStreamReader(
-//                getClass().getClassLoader().getResourceAsStream("respostas.json"))) {
-//
-//            Type tipoMapa = new TypeToken<Map<String, String>>() {}.getType();
-//            this.respostas = new Gson().fromJson(reader, tipoMapa);
-//
-//            System.out.println("Respostas carregadas com sucesso!");
-//
-//        } catch (Exception e) {
-//            System.err.println("Erro ao carregar o arquivo JSON: " + e.getMessage());
-//        }
-//    }
-//
-//    public String processarMensagem(String mensagem) {
-//        mensagem = mensagem.toLowerCase();
-//
-//        // Percorre as chaves do JSON
-//        for (String chave : respostas.keySet()) {
-//            // Cria uma regex para a palavra-chave
-//            String regex = "\\b" + Pattern.quote(chave) + "\\b";
-//            Pattern pattern = Pattern.compile(regex);
-//            Matcher matcher = pattern.matcher(mensagem);
-//
-//            // Verifica se a mensagem contém a palavra-chave
-//            if (matcher.find()) {
-//                return respostas.get(chave);
-//            }
-//        }
-//
-//        // Verifica palavras-chave mais genéricas
-//        String[] palavrasImportantes = {"agendar", "marcar", "disponível", "horário", "carro", "modelo", "cor"};
-//        for (String palavra : palavrasImportantes) {
-//            String regex = "\\b" + Pattern.quote(palavra) + "\\b";
-//            Pattern pattern = Pattern.compile(regex);
-//            Matcher matcher = pattern.matcher(mensagem);
-//
-//            if (matcher.find()) {
-//                return "Parece que você quer falar sobre " + palavra + ". Pode reformular sua pergunta?";
-//            }
-//        }
-//
-//        return "Desculpe, não entendi sua mensagem. Por favor, tente perguntar de outra forma.";
-//    }
-//}
-
-
-
-
-
-
-
-//import com.google.gson.Gson;
-//import com.google.gson.reflect.TypeToken;
 //
 //import java.io.InputStreamReader;
 //import java.io.Reader;
@@ -197,8 +126,117 @@ package com.exemplo.chatbot.service;
 
 
 
+//import com.google.gson.Gson;
+//import com.google.gson.reflect.TypeToken;
+//import java.io.*;
+//import java.lang.reflect.Type;
+//import java.nio.file.Files;
+//import java.nio.file.Path;
+//import java.nio.file.Paths;
+//import java.util.*;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
+//
+//public class ChatBotService {
+//
+//    private Map<String, String> respostas;
+//    private static final String ARQUIVO_ENTRADAS_NAO_RECONHECIDAS = "src/main/resources/entradas.json";
+//    private static final String ARQUIVO_RESPOSTAS = "src/main/resources/respostas.json";
+//
+//    public ChatBotService() {
+//        this.respostas = new HashMap<>();
+//        carregarRespostas();
+//    }
+//
+//    private void carregarRespostas() {
+//        try (Reader reader = new FileReader(ARQUIVO_RESPOSTAS)) {
+//
+//            Type tipoMapa = new TypeToken<Map<String, String>>() {}.getType();
+//            this.respostas = new Gson().fromJson(reader, tipoMapa);
+//
+//            System.out.println("Respostas carregadas com sucesso!");
+//
+//        } catch (Exception e) {
+//            System.err.println("Erro ao carregar o arquivo JSON: " + e.getMessage());
+//        }
+//    }
+//
+//    public String processarMensagem(String mensagem) {
+//        mensagem = mensagem.toLowerCase();
+//
+//        // Verifica palavras-chave no JSON
+//        for (String chave : respostas.keySet()) {
+//            String regex = "\\b" + Pattern.quote(chave) + "\\b";
+//            Pattern pattern = Pattern.compile(regex);
+//            Matcher matcher = pattern.matcher(mensagem);
+//
+//            if (matcher.find()) {
+//                return respostas.get(chave);
+//            }
+//        }
+//
+//        // Verifica palavras-chave genéricas
+//        String[] palavrasImportantes = {"agendar", "marcar", "disponível", "horário", "carro", "modelo", "cor"};
+//        for (String palavra : palavrasImportantes) {
+//            String regex = "\\b" + Pattern.quote(palavra) + "\\b";
+//            Pattern pattern = Pattern.compile(regex);
+//            Matcher matcher = pattern.matcher(mensagem);
+//
+//            if (matcher.find()) {
+//                return "Parece que você quer falar sobre " + palavra + ". Pode reformular sua pergunta?";
+//            }
+//        }
+//
+//        // Mensagem não reconhecida
+//        salvarMensagemNaoReconhecida(mensagem);
+//        return "Desculpe, não entendi sua mensagem. Por favor, tente perguntar de outra forma.";
+//    }
+//
+//    private void salvarMensagemNaoReconhecida(String mensagem) {
+//        try {
+//            Path caminhoArquivo = Paths.get(ARQUIVO_ENTRADAS_NAO_RECONHECIDAS);
+//            List<String> mensagensNaoReconhecidas;
+//
+//            // Cria o arquivo se ele não existir
+//            if (!Files.exists(caminhoArquivo)) {
+//                Files.createFile(caminhoArquivo);
+//                mensagensNaoReconhecidas = new ArrayList<>();
+//            } else {
+//                // Lê mensagens existentes
+//                try (Reader reader = new FileReader(caminhoArquivo.toFile())) {
+//                    Type listType = new TypeToken<List<String>>() {}.getType();
+//                    mensagensNaoReconhecidas = new Gson().fromJson(reader, listType);
+//
+//                    if (mensagensNaoReconhecidas == null) {
+//                        mensagensNaoReconhecidas = new ArrayList<>();
+//                    }
+//                }
+//            }
+//
+//            // Evita duplicatas
+//            if (!mensagensNaoReconhecidas.contains(mensagem)) {
+//                mensagensNaoReconhecidas.add(mensagem);
+//
+//                // Salva no arquivo
+//                try (Writer writer = new FileWriter(caminhoArquivo.toFile())) {
+//                    new Gson().toJson(mensagensNaoReconhecidas, writer);
+//                }
+//
+//                System.out.println("Mensagem não reconhecida salva: " + mensagem);
+//            }
+//        } catch (Exception e) {
+//            System.err.println("Erro ao salvar a mensagem não reconhecida: " + e.getMessage());
+//        }
+//    }
+//}
+
+
+
+
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
@@ -207,42 +245,66 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.UUID;
 
 public class ChatBotService {
 
     private Map<String, String> respostas;
-    private static final String ARQUIVO_ENTRADAS_NAO_RECONHECIDAS = "src/main/resources/entradas.json";
+    private List<Map<String, Object>> conversas;
+    private UUID idConversaAtual;
     private static final String ARQUIVO_RESPOSTAS = "src/main/resources/respostas.json";
+    private static final String ARQUIVO_CONVERSAS = "src/main/resources/conversas.json";
 
     public ChatBotService() {
         this.respostas = new HashMap<>();
+        this.conversas = new ArrayList<>();
+        this.idConversaAtual = UUID.randomUUID();
         carregarRespostas();
+        carregarConversas();
     }
 
     private void carregarRespostas() {
         try (Reader reader = new FileReader(ARQUIVO_RESPOSTAS)) {
-
             Type tipoMapa = new TypeToken<Map<String, String>>() {}.getType();
             this.respostas = new Gson().fromJson(reader, tipoMapa);
-
             System.out.println("Respostas carregadas com sucesso!");
-
         } catch (Exception e) {
             System.err.println("Erro ao carregar o arquivo JSON: " + e.getMessage());
+        }
+    }
+
+    private void carregarConversas() {
+        try {
+            Path caminhoArquivo = Paths.get(ARQUIVO_CONVERSAS);
+
+            if (Files.exists(caminhoArquivo)) {
+                try (Reader reader = new FileReader(caminhoArquivo.toFile())) {
+                    Type listType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+                    this.conversas = new Gson().fromJson(reader, listType);
+
+                    if (this.conversas == null) {
+                        this.conversas = new ArrayList<>();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao carregar o histórico de conversas: " + e.getMessage());
         }
     }
 
     public String processarMensagem(String mensagem) {
         mensagem = mensagem.toLowerCase();
 
-        // Verifica palavras-chave no JSON
+        // Percorre as chaves do JSON
         for (String chave : respostas.keySet()) {
             String regex = "\\b" + Pattern.quote(chave) + "\\b";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(mensagem);
 
             if (matcher.find()) {
-                return respostas.get(chave);
+                String resposta = respostas.get(chave);
+                salvarInteracao(mensagem, resposta);
+                return resposta;
             }
         }
 
@@ -254,49 +316,57 @@ public class ChatBotService {
             Matcher matcher = pattern.matcher(mensagem);
 
             if (matcher.find()) {
-                return "Parece que você quer falar sobre " + palavra + ". Pode reformular sua pergunta?";
+                String resposta = "Parece que você quer falar sobre " + palavra + ". Pode reformular sua pergunta?";
+                salvarInteracao(mensagem, resposta);
+                return resposta;
             }
         }
 
         // Mensagem não reconhecida
-        salvarMensagemNaoReconhecida(mensagem);
-        return "Desculpe, não entendi sua mensagem. Por favor, tente perguntar de outra forma.";
+        String resposta = "Desculpe, não entendi sua mensagem. Por favor, tente perguntar de outra forma.";
+        salvarInteracao(mensagem, resposta);
+        return resposta;
     }
 
-    private void salvarMensagemNaoReconhecida(String mensagem) {
-        try {
-            Path caminhoArquivo = Paths.get(ARQUIVO_ENTRADAS_NAO_RECONHECIDAS);
-            List<String> mensagensNaoReconhecidas;
+    private void salvarInteracao(String mensagemUsuario, String respostaBot) {
+        // Adiciona uma nova interação à conversa atual
+        Map<String, String> interacao = new HashMap<>();
+        interacao.put("usuario", mensagemUsuario);
+        interacao.put("bot", respostaBot);
 
-            // Cria o arquivo se ele não existir
-            if (!Files.exists(caminhoArquivo)) {
-                Files.createFile(caminhoArquivo);
-                mensagensNaoReconhecidas = new ArrayList<>();
-            } else {
-                // Lê mensagens existentes
-                try (Reader reader = new FileReader(caminhoArquivo.toFile())) {
-                    Type listType = new TypeToken<List<String>>() {}.getType();
-                    mensagensNaoReconhecidas = new Gson().fromJson(reader, listType);
+        // Verifica se a conversa atual já está no histórico
+        Optional<Map<String, Object>> conversaAtual = conversas.stream()
+                .filter(conversa -> conversa.get("id").equals(idConversaAtual.toString()))
+                .findFirst();
 
-                    if (mensagensNaoReconhecidas == null) {
-                        mensagensNaoReconhecidas = new ArrayList<>();
-                    }
-                }
-            }
+        if (conversaAtual.isPresent()) {
+            // Atualiza a lista de mensagens na conversa existente
+            @SuppressWarnings("unchecked")
+            List<Map<String, String>> mensagens = (List<Map<String, String>>) conversaAtual.get().get("mensagens");
+            mensagens.add(interacao);
+        } else {
+            // Cria uma nova conversa e adiciona ao histórico
+            Map<String, Object> novaConversa = new HashMap<>();
+            novaConversa.put("id", idConversaAtual.toString());
+            List<Map<String, String>> mensagens = new ArrayList<>();
+            mensagens.add(interacao);
+            novaConversa.put("mensagens", mensagens);
+            conversas.add(novaConversa);
+        }
 
-            // Evita duplicatas
-            if (!mensagensNaoReconhecidas.contains(mensagem)) {
-                mensagensNaoReconhecidas.add(mensagem);
+        // Salva todas as conversas no arquivo
+        salvarConversas();
+    }
 
-                // Salva no arquivo
-                try (Writer writer = new FileWriter(caminhoArquivo.toFile())) {
-                    new Gson().toJson(mensagensNaoReconhecidas, writer);
-                }
 
-                System.out.println("Mensagem não reconhecida salva: " + mensagem);
-            }
+
+
+    private void salvarConversas() {
+        try (Writer writer = new FileWriter(ARQUIVO_CONVERSAS)) {
+            new Gson().toJson(conversas, writer);
+            System.out.println("Conversas salvas com sucesso!");
         } catch (Exception e) {
-            System.err.println("Erro ao salvar a mensagem não reconhecida: " + e.getMessage());
+            System.err.println("Erro ao salvar as conversas: " + e.getMessage());
         }
     }
 }
