@@ -1,7 +1,7 @@
 # Chatbot - Projeto de Engenharia de Software 🤖
 
 **Descrição:**  
-Este chatbot foi desenvolvido como parte da disciplina de **Engenharia de Software**. Ele utiliza expressões regulares para interpretar e responder a interações com base em um arquivo de respostas configurável (`respostas.json`).
+Este chatbot foi desenvolvido como parte da disciplina de **Engenharia de Software**. Ele utiliza expressões regulares e frases prontas para responder a interações do usuário com base em um arquivo de respostas json (`respostas.json`).
 
 ---
 
