@@ -48,7 +48,7 @@ Este chatbot foi desenvolvido como parte da disciplina de **Engenharia de Softwa
    A aplicação estará disponível em:
    http://localhost:8080
 
-4. **Configure o ngrok:**
+4. **Configure o ngrok: (Opcional)**
    ```bash
    Execute o comando no terminal:
    ngrok http 8080
