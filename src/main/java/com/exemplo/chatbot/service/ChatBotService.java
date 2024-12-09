@@ -131,42 +131,13 @@ public class ChatBotService {
         }
     }
 
-//    private void salvarInteracao(String mensagemUsuario, String respostaBot) {
-//        Map<String, String> interacao = new HashMap<>();
-//        interacao.put("usuario", mensagemUsuario);
-//        interacao.put("bot", respostaBot);
-//
-//        Optional<Map<String, Object>> conversaAtual = conversas.stream()
-//                .filter(conversa -> conversa.get("id").equals(idConversaAtual.toString()))
-//                .findFirst();
-//
-//        if (conversaAtual.isPresent()) {
-//            @SuppressWarnings("unchecked")
-//            List<Map<String, String>> mensagens = (List<Map<String, String>>) conversaAtual.get().get("mensagens");
-//            mensagens.add(interacao);
-//        } else {
-//            Map<String, Object> novaConversa = new HashMap<>();
-//            novaConversa.put("id", idConversaAtual.toString());
-//            List<Map<String, String>> mensagens = new ArrayList<>();
-//            mensagens.add(interacao);
-//            novaConversa.put("mensagens", mensagens);
-//            conversas.add(novaConversa);
-//        }
-//
-//        salvarConversas();
-//    }
-
     private void salvarInteracao(String mensagemUsuario, String respostaBot) {
-        // Obter data e hora atual
         String dataHoraAtual = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-
-        // Criar o mapa de interação com novas informações
         Map<String, String> interacao = new HashMap<>();
         interacao.put("usuario", mensagemUsuario);
         interacao.put("bot", respostaBot);
         interacao.put("data_hora", dataHoraAtual);
 
-        // Verificar se a conversa já existe ou criar uma nova
         Optional<Map<String, Object>> conversaAtual = conversas.stream()
                 .filter(conversa -> conversa.get("id").equals(idConversaAtual.toString()))
                 .findFirst();
@@ -183,9 +154,7 @@ public class ChatBotService {
             novaConversa.put("mensagens", mensagens);
             conversas.add(novaConversa);
         }
-
         salvarConversas();
-
     }
 
     private void salvarConversas() {

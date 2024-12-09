@@ -1,0 +1,5 @@
+https://www.jetbrains.com/idea/download/?section=windows
+https://github.com/gxstavomiguel/spring-chatbot
+https://download.ngrok.com/windows
+https://jsonformatter.curiousconcept.com/
+
