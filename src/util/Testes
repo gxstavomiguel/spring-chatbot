@@ -1,0 +1,88 @@
+Plano de Testes para o Sistema de Respostas Automáticas da DC Drivers Company
+Abaixo está uma bateria de testes para verificar a funcionalidade e a precisão do sistema de respostas automáticas, baseando-se no JSON.
+
+1. Teste de Saudações
+Teste se o sistema responde corretamente às variações de saudações.
+
+Entradas:
+bom dia
+boa tarde
+boa noite
+Olá
+olá
+ola
+oi
+Resposta Esperada:
+"Bem-vindo(a) à DC Drivers Company! Como posso ajudar você hoje?"
+2. Teste de Despedida
+Verifique se o sistema responde corretamente a termos de despedida.
+
+Entrada:
+tchau
+Resposta Esperada:
+"Até logo! Obrigado por entrar em contato com a DC Drivers Company."
+3. Teste de Aplicativos
+Teste variações relacionadas ao download de aplicativos.
+
+Entradas:
+aplicativos
+aplicativo
+Resposta Esperada:
+"Você pode baixar nossos aplicativos para facilitar sua mobilidade: 'Drivers Company' para viagens compartilhadas e 'Drivers Company GO' para viagens urbanas. Disponíveis na Play Store (Android) e App Store (iOS)."
+4. Teste de Passo a Passo/Guia
+Entradas:
+passo a passo
+guia
+Resposta Esperada:
+"Sua viagem em três passos: 1. Agende sua viagem; 2. Acompanhe em tempo real; 3. Desfrute da experiência."
+5. Teste de Corridas/Chamadas de Motorista
+Verifique se o sistema reconhece variações de como agendar uma corrida ou chamar um motorista.
+
+Entradas:
+corrida
+chame um motorista
+chamar um motorista
+chamar motorista
+como eu encontro um motorista
+como eu encontro um motorista?
+Resposta Esperada:
+"Você deve agendar sua viagem/corrida baixando nossos aplicativos para solicitar um motorista: 'Drivers Company' para viagens compartilhadas e 'Drivers Company GO' para viagens urbanas. Disponíveis na Play Store (Android) e App Store (iOS)."
+6. Teste de Vantagens
+Verifique se o sistema responde a perguntas sobre vantagens ou características personalizadas.
+
+Entradas:
+vantagens
+personalizado
+Resposta Esperada:
+"Nossas vantagens incluem: serviço personalizado, segurança e confiabilidade, suporte 24/7, preços competitivos e muito mais. Escolha a Drivers Company!"
+7. Teste de Contato
+Entradas:
+contato
+Resposta Esperada:
+"Você pode entrar em contato conosco pelo e-mail driverscompany2024@gmail.com, WhatsApp ou visitar nosso endereço em Araranguá - SC, CEP 88905-256."
+8. Teste de Missão e Valores
+Entradas:
+missão
+valores
+Respostas Esperadas:
+"Nossa missão é proporcionar transporte seguro, acessível e confiável, conectando pessoas e comunidades de forma eficiente."
+"Nossos valores incluem: segurança em primeiro lugar, excelência no atendimento, inovação, responsabilidade social, valorização dos motoristas e transparência."
+9. Teste de Pagamento
+Teste variações relacionadas às formas de pagamento.
+
+Entradas:
+formas
+formas?
+pagamento
+pagar
+forma de pagamento
+formas de pagamento
+Resposta Esperada:
+"Aceitamos cartões de crédito, débito e pagamentos via aplicativo."
+10. Teste de Acessibilidade
+Entradas:
+acessibilidade
+a empresa possui acessibilidade para pessoas com deficiência?
+Respostas Esperadas:
+"Nosso site é totalmente acessível e está em conformidade com as diretrizes WCAG 2.1 nível AA. Caso precise de assistência, entre em contato conosco pelo e-mail driverscompany2024@gmail.com."
+"Sim, nossos veículos e serviços são adaptados para garantir acessibilidade e conforto para todos."
