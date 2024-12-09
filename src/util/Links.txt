@@ -1,6 +1,7 @@
 https://www.jetbrains.com/idea/download/?section=windows
+https://git-scm.com/downloads
 https://github.com/gxstavomiguel/spring-chatbot
 https://download.ngrok.com/windows
 https://jsonformatter.curiousconcept.com/
+https://trello.com/invite/b/66c3f156b01dd91656460180/ATTIf87e84b2ef13b07daa3fffbf744915116C63A6DB/chatbot
 https://www.canva.com/design/DAGUN3YSbvI/0EhpD7niU2mBCTzwl48R-A/edit?utm_content=DAGUN3YSbvI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
