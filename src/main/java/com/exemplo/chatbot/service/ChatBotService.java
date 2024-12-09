@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -61,7 +62,7 @@ public class ChatBotService {
     }
 
     public String processarMensagem(String mensagem) {
-        mensagem = mensagem.toLowerCase();
+        mensagem = normalizarTexto(mensagem.trim().toLowerCase());
 
         for (String chave : respostas.keySet()) {
             String regex = "\\b" + Pattern.quote(chave) + "\\b";
@@ -92,6 +93,11 @@ public class ChatBotService {
         salvarMensagemNaoReconhecida(mensagem);
         salvarInteracao(mensagem, resposta);
         return resposta;
+    }
+
+    private String normalizarTexto(String texto) {
+        texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
+        return texto.replaceAll("[^\\p{ASCII}]", "");
     }
 
     private void salvarMensagemNaoReconhecida(String mensagem) {
